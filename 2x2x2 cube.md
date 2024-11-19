@@ -6,7 +6,7 @@ and you need your grounds into A0,A1
 
 ```
 // Delay time for visualization
-int delayTime = 500;
+int delayTime = 250;
 
 // 3D array to define LED patterns (words)
 // Each element represents a "pattern" with two rows and four columns
@@ -23,7 +23,7 @@ int ledPatterns[12][2][4] = {
   {{0, 1, 1, 0}, {0, 0, 0, 0}}, // Row 1 inner LEDs on, Row 2 off
   {{1, 0, 0, 1}, {0, 0, 0, 0}}, // Row 1 outer LEDs on, Row 2 off
   {{0, 0, 0, 0}, {0, 1, 1, 0}}, // Row 1 off, Row 2 inner LEDs on
-  {{0, 0, 0, 0}, {0, 0, 0, 0}}  // All LEDs off
+  // {{0, 0, 0, 0}, {0, 0, 0, 0}}  // All LEDs off
 };
 
 // Function runs once to initialize the program
@@ -74,7 +74,7 @@ void loop() {
       }
     }
     // Add a delay to visualize the pattern
-    turnOnLED(0, 0, 750);
+    turnOnLED(0, 0, delayTime);
   }
 }
 
@@ -90,6 +90,7 @@ void turnOnLED(int row, int column, int delayTime) {
   } else {
     delay(delayTime);  // Wait for the specified time
     turnOffAllLEDs();  // Turn off all LEDs after the delay
+
   }
 }
 ```
